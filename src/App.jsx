@@ -9,10 +9,9 @@ function App() {
 
   return (
     <>
-      <Layout> 
+      <Layout>
         <Home> </Home>
       </Layout>
-      
     </>
   )
 }
