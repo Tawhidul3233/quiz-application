@@ -1,6 +1,8 @@
 
 import Layout from './Components/Layout'
-import Home from './Components/Pages/Home'
+import Login from './Components/Pages/Login'
+// import Home from './Components/Pages/Home'
+// import SingUp from './Components/Pages/SingUp'
 
 import './Styles/App.css'
 
@@ -10,7 +12,9 @@ function App() {
   return (
     <>
       <Layout>
-        <Home> </Home>
+        {/* <Home> </Home> */}
+        {/* <SingUp> </SingUp> */}
+        <Login> </Login>
       </Layout>
     </>
   )
