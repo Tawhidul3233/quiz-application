@@ -1,4 +1,3 @@
-
 import Layout from './Components/Layout'
 import Login from './Components/Pages/Login'
 import Quiz from './Components/Pages/Quiz'
@@ -11,7 +10,7 @@ import './Styles/App.css'
 
 function App() {
 
-
+  // console.log(process.env.REACT_APP_apiKey)
   return (
     <Router>
       <Layout>
