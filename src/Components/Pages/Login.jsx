@@ -6,6 +6,7 @@ import Button from "../Button";
 import Form from "../Form";
 import TextInput from "../TextInput";
 import classes from '../../Styles/Login.module.css'
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -24,7 +25,7 @@ const Login = () => {
           <Button> Submit Now </Button>
           <div className="info">
             Dont have an account?
-            <a href="signup.html">Signup</a> instead.
+            <Link to="/Singup">Signup</Link> instead.
           </div>
         </Form>
       </div>

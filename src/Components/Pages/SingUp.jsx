@@ -6,6 +6,7 @@ import TextInput from '../TextInput';
 import CheckBox from '../CheckBox';
 import Button from '../Button';
 import singupImg from '../../assets/images/signup.svg'
+import { Link } from 'react-router-dom';
 
 const SingUp = () => {
   return (
@@ -30,7 +31,8 @@ const SingUp = () => {
           <Button > Submit Now </Button>
 
           <div className="info">
-            Already have an account? <a href="login.html">Login</a> instead.
+            Already have an account? 
+            <Link to="/Login">Login</Link> instead.
           </div>
         </Form>
       </div>
