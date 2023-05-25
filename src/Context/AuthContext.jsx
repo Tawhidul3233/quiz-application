@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 // custom hook
 export const useAuth = () => {
-  return useContext(AuthContext)
+  return useContext(AuthContext);
 }
 
 const AuthProvider = ({ children }) => {

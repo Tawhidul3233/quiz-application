@@ -7,6 +7,8 @@ import SingUp from './Components/Pages/SingUp'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './Styles/App.css'
+import PrivateRoute from './Components/PrivateRoute'
+import PublicRoute from './Components/PublicRoute'
 
 function App() {
 
@@ -16,10 +18,24 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<Home> </Home>}></Route>
-          <Route path='/Singup' element={<SingUp> </SingUp>}> </Route>
-          <Route path='/Login' element={<Login> </Login>}>  </Route>
-          <Route path='/Quiz' element={<Quiz > </Quiz>}>  </Route>
-          <Route path='/Result' element={<Result> </Result>}></Route>
+          <Route path='/Singup' element={
+            <PublicRoute>
+              <SingUp> </SingUp>
+            </PublicRoute>}> </Route>
+          <Route path='/Login' element={
+            <PublicRoute>
+              <Login> </Login>
+            </PublicRoute>}>  </Route>
+          <Route path='/Quiz' element={
+            <PrivateRoute>
+              <Quiz />
+            </PrivateRoute>}>
+          </Route>
+          <Route path='/Result' element={
+            <PrivateRoute>
+              <Result />
+            </PrivateRoute>}>
+          </Route>
         </Routes>
       </Layout>
     </Router>

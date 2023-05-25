@@ -6,7 +6,7 @@ import Button from "../Button";
 import Form from "../Form";
 import TextInput from "../TextInput";
 import classes from '../../Styles/Login.module.css'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../Context/AuthContext";
 
@@ -18,6 +18,8 @@ const Login = () => {
 
   const { signin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/'
 
   const handelSubmit = async (e) => {
     e.preventDefault()
@@ -26,7 +28,7 @@ const Login = () => {
       setLoading(true);
       await signin(email, password);
       setLoading(false)
-      navigate('/')
+      navigate(from, { replace: true })
     } catch (error) {
       console.log(error);
       setError(error);

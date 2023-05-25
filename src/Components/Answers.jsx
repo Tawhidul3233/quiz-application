@@ -6,7 +6,7 @@ import classes from '../Styles/Answers.module.css'
 const Answers = () => {
   return (
     <div className={classes.answers}>
-      <CheckBox className={classes.answer} text='text answer'> </CheckBox>
+      <CheckBox className={classes.answer} text='text answer' /> 
     </div>
   );
 };
