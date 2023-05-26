@@ -10,7 +10,7 @@ const Videos = () => {
   const [page, setPage] = useState(0)
   const { loading, error, videos, hasMore } = useVideosList(page);
 
-  console.log(videos)
+  // console.log(videos)
   return (
     <div >
       {loading && <div> Loading....... 🎢 </div>}
@@ -23,11 +23,12 @@ const Videos = () => {
             dataLength={videos.length}
             hasMore={hasMore}
             next={() => setPage(page + 8)}
+            loader='Loading.................'
 
           >
             {
               videos.map((video, index) =>
-                video.noq > 0 ? <Link to='/Quiz' key={index}>
+                video.noq > 0 ? <Link to={`/Quiz/${video.youtubeID}`} key={index}>
                   <Video title={video.title} id={video.youtubeID} noq={video.noq} />
                 </Link> :
                   <Video key={index} title={video.title} id={video.youtubeID} noq={video.noq} />

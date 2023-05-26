@@ -26,7 +26,7 @@ function App() {
             <PublicRoute>
               <Login> </Login>
             </PublicRoute>}>  </Route>
-          <Route path='/Quiz' element={
+          <Route path='/Quiz/:videoID' element={
             <PrivateRoute>
               <Quiz />
             </PrivateRoute>}>
