@@ -31,7 +31,7 @@ function App() {
               <Quiz />
             </PrivateRoute>}>
           </Route>
-          <Route path='/Result' element={
+          <Route path='/Result/:videoID' element={
             <PrivateRoute>
               <Result />
             </PrivateRoute>}>

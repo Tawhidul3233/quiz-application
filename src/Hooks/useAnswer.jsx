@@ -3,25 +3,25 @@
 import { useEffect, useState } from "react";
 import { getDatabase, query, orderByKey, ref, get } from 'firebase/database'
 
-const useQuestions = (videoID) => {
+const useAnswers = (videoID) => {
   const [loading, setLoading] = useState('')
   const [error, setError] = useState('')
-  const [questions, setQuestions] = useState([])
+  const [answers, setAnswers] = useState([])
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const fetchAnswers = async () => {
       const db = getDatabase();
-      const quizRef = ref(db, 'quiz/' + videoID + '/questions');
-      const quizQuery = query(quizRef, orderByKey());
+      const answerRef = ref(db, 'answer/' + videoID + '/questions');
+      const answerQuery = query(answerRef, orderByKey());
 
       try {
         setLoading(true)
         setError('')
-        const snapshot = await get(quizQuery);
+        const snapshot = await get(answerQuery);
         setLoading(false)
         if (snapshot.exists()) {
-          setQuestions((preQuestions) => {
-            return [...preQuestions, ...Object.values(snapshot.val())]
+          setAnswers((preAnswers) => {
+            return [...preAnswers, ...Object.values(snapshot.val())]
           })
         } else {
           //  
@@ -33,14 +33,14 @@ const useQuestions = (videoID) => {
       }
 
     }
-    fetchQuestions();
+    fetchAnswers();
   }, [videoID])
 
   return {
     loading,
     error,
-    questions
+    answers
   }
 };
 
-export default useQuestions;
+export default useAnswers;
