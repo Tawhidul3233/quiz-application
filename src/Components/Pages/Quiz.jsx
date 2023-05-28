@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import Answers from "../Answers";
 import MiniPlayer from "../MiniPlayer";
 import ProgressBar from "../ProgressBar";
@@ -38,6 +38,9 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const {videoTitle} = location.state;
+  // console.log(location)
 
 
   const [qna, dispatch] = useReducer(reducer, initialState);
@@ -104,7 +107,7 @@ const Quiz = () => {
           <h4>Question can have multiple answers</h4>
           <Answers input={true} options={qna[currentQuestionIndex]?.options} handelChange={handelAnswerChange} ></Answers>
           <ProgressBar submit={submit} nextQuestion={nextQuestion} prevQuestion={prevQuestion} progress={progress} > </ProgressBar>
-          <MiniPlayer></MiniPlayer>
+          <MiniPlayer id={videoID} title={videoTitle}></MiniPlayer>
         </>
       }
 

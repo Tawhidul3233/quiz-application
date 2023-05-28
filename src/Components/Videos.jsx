@@ -28,7 +28,10 @@ const Videos = () => {
           >
             {
               videos.map((video, index) =>
-                video.noq > 0 ? <Link to={`/Quiz/${video.youtubeID}`} key={index}>
+                video.noq > 0 ? <Link
+                  to={`/Quiz/${video.youtubeID}`}
+                  state={{ videoTitle: video.title }}
+                  key={index}>
                   <Video title={video.title} id={video.youtubeID} noq={video.noq} />
                 </Link> :
                   <Video key={index} title={video.title} id={video.youtubeID} noq={video.noq} />
@@ -38,7 +41,7 @@ const Videos = () => {
         )
       }
 
-    </div>
+    </div >
   );
 };
 
