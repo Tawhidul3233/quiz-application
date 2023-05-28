@@ -84,10 +84,12 @@ const Quiz = () => {
       [videoID]: qna
     })
 
-    navigate({
-      pathname: `/Result/${videoID}`,
-      state: { qna }
-    })
+
+    navigate(`/Result/${videoID}`, {
+      state: {
+        qna
+      }
+    });
 
   }
 
@@ -100,7 +102,7 @@ const Quiz = () => {
         !loading && !error && questions.length > 0 && <>
           <h1> {qna[currentQuestionIndex]?.title} </h1>
           <h4>Question can have multiple answers</h4>
-          <Answers options={qna[currentQuestionIndex]?.options} handelChange={handelAnswerChange} ></Answers>
+          <Answers input={true} options={qna[currentQuestionIndex]?.options} handelChange={handelAnswerChange} ></Answers>
           <ProgressBar submit={submit} nextQuestion={nextQuestion} prevQuestion={prevQuestion} progress={progress} > </ProgressBar>
           <MiniPlayer></MiniPlayer>
         </>

@@ -11,7 +11,7 @@ const useAnswers = (videoID) => {
   useEffect(() => {
     const fetchAnswers = async () => {
       const db = getDatabase();
-      const answerRef = ref(db, 'answer/' + videoID + '/questions');
+      const answerRef = ref(db, 'answers/' + videoID + '/questions');
       const answerQuery = query(answerRef, orderByKey());
 
       try {
